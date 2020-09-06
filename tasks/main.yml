@@ -19,10 +19,11 @@
     state: present
 
 - name: Docker | Add repository
-  become: 'yes'
+  become: yes
   apt_repository:
     repo: '{{ docker_apt_repo }}'
     state: present
+    mode: '0644'
 
 - name: Docker | Install
   become: yes
