@@ -24,7 +24,10 @@
         changed_when: false
 
       - debug:
-          var: hello_world
+          var: '{{ item }}'
+        loop:
+          - hello_world.rc
+          - hello_world.stderr
 
       - name: Socket Assertions
         assert:
