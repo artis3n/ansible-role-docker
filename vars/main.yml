@@ -30,9 +30,7 @@ distro_release_name:
 
 distro_release: '{{ distro_release_name[ansible_distribution_release] | default(ansible_distribution_release | lower) }}'
 
-docker_gpgkey_fingerprint:
-  ubuntu: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
-  debian: EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796
+docker_gpgkey_fingerprint: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
 
 docker_apt_arch: amd64
 docker_apt_repo: deb [arch={{ docker_apt_arch }}] https://download.docker.com/linux/{{ distro[ansible_distribution] }} {{ ansible_distribution_release }} stable
