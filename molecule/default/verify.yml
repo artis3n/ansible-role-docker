@@ -14,24 +14,3 @@
     assert:
       that:
         - docker_exec.stat.exists
-
-  - name: Requires sockets
-    block:
-      - name: Hello World
-        command: docker run hello-world
-        register: hello_world
-        failed_when: false
-        changed_when: false
-
-      - debug:
-          var: '{{ item }}'
-        loop:
-          - hello_world.rc
-          - hello_world.stderr
-
-      - name: Socket Assertions
-        assert:
-          that:
-            - hello_world.rc == 0
-    tags:
-      - sockets
