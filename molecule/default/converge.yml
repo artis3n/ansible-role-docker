@@ -4,4 +4,4 @@
   tasks:
     - name: "Include role"
       include_role:
-        name: "changeme"
+        name: "artis3n.docker"

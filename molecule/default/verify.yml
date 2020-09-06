@@ -4,6 +4,14 @@
 - name: Verify
   hosts: all
   tasks:
-  - name: Example assertion
+
+  - name: Hello World
+    command: docker run hello-world
+    register: hello_world
+    failed_when: false
+    changed_when: false
+
+  - name: Assertions
     assert:
-      that: true
+      that:
+        - hello_world.rc == 0

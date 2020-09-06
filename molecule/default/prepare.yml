@@ -1,7 +1,0 @@
----
-- name: Prepare
-  hosts: all
-  become: yes
-  gather_facts: false
-
-  tasks:
