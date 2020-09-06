@@ -28,4 +28,4 @@ jobs:
           cp -r ./ ~/.ansible/roles/artis3n.docker
 
       - name: Test
-        run: pipenv run molecule test
+        run: pipenv run molecule test --skip-tags sockets
