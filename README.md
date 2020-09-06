@@ -53,4 +53,4 @@ MIT
 Author Information
 ------------------
 
-@Artis3n
+Ari Kalfus (@artis3n)
