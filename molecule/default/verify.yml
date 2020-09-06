@@ -11,6 +11,9 @@
     failed_when: false
     changed_when: false
 
+  - debug:
+      var: hello_world
+
   - name: Assertions
     assert:
       that:
