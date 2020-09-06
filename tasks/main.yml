@@ -1,3 +1,7 @@
+- name: Docker | Operating System
+  debug:
+    msg: '{{ ansible_distribution }} {{ ansible_distribution_release }} as: {{ distro[ansible_distribution] }} {{ distro_release }}'
+
 - name: Docker | Remove incompatible packages
   become: yes
   apt:
@@ -15,7 +19,7 @@
   become: yes
   apt_key:
     url: '{{ docker_gpgkey_url }}'
-    id: '{{ docker_gpgkey_fingerprint }}'
+    id: '{{ docker_gpgkey_fingerprint[distro[ansible_distribution]] }}'
     state: present
 
 - name: Docker | Add repository
