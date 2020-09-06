@@ -19,7 +19,7 @@
   become: yes
   apt_key:
     url: '{{ docker_gpgkey_url }}'
-    id: '{{ docker_gpgkey_fingerprint[distro[ansible_distribution]] }}'
+    id: '{{ docker_gpgkey_fingerprint }}'
     state: present
 
 - name: Docker | Add repository
