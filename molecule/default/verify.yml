@@ -4,6 +4,13 @@
 - name: Verify
   hosts: all
   tasks:
-  - name: Example assertion
+
+  - name: Get executable
+    stat:
+      path: /usr/bin/docker
+    register: docker_exec
+
+  - name: Assertions
     assert:
-      that: true
+      that:
+        - docker_exec.stat.exists
