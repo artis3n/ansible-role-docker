@@ -13,10 +13,6 @@ galaxy_info:
       - bionic
       - xenial
       - focal
-  - name: Debian
-    versions:
-      - buster
-      - stretch
 
   galaxy_tags:
     - docker
