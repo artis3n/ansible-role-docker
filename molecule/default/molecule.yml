@@ -10,7 +10,7 @@ lint: |
   yamllint .
 platforms:
   - name: instance
-    image: geerlingguy/docker-ubuntu2004-ansible:latest
+    image: ${MOLECULE_DISTRO:-geerlingguy/docker-ubuntu2004-ansible:latest}
     command: '/lib/systemd/systemd'
     pre_build_image: true
     volumes:

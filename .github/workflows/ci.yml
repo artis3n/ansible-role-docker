@@ -8,6 +8,15 @@ on:
 jobs:
   molecule:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        distros:
+          - geerlingguy/docker-ubuntu2004-ansible:latest
+          - geerlingguy/docker-ubuntu1804-ansible:latest
+          - geerlingguy/docker-ubuntu1604-ansible:latest
+      fail-fast: false
+
     steps:
       - uses: actions/checkout@v2
 
@@ -29,3 +38,5 @@ jobs:
 
       - name: Test
         run: pipenv run molecule test
+        env:
+          MOLECULE_DISTRO: "${{ matrix.distros }}"
