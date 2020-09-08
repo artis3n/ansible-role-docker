@@ -22,6 +22,7 @@ docker_gpgkey_url: https://download.docker.com/linux/{{ distro[ansible_distribut
 
 distro:
   Ubuntu: ubuntu
+  Pop!_OS: ubuntu
   Debian: debian
   Kali GNU/Linux: debian
 
