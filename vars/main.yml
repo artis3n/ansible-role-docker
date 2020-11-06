@@ -28,6 +28,7 @@ distro:
 
 distro_release_name:
   kali-rolling: buster
+  groovy: focal
 
 distro_release: '{{ distro_release_name[ansible_distribution_release] | default(ansible_distribution_release | lower) }}'
 
