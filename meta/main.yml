@@ -13,6 +13,7 @@ galaxy_info:
       - bionic
       - xenial
       - focal
+      - groovy
 
   galaxy_tags:
     - docker

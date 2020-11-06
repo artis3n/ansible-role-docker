@@ -1,49 +1,49 @@
-- name: Docker | Operating System
+- name: Operating System
   debug:
     msg: '{{ ansible_distribution }} {{ ansible_distribution_release }} as: {{ distro[ansible_distribution] }} {{ distro_release }}'
 
-- name: Docker | Remove incompatible packages
+- name: Remove incompatible packages
   become: yes
   apt:
     name: '{{ docker_incompatibility_packages }}'
     state: absent
 
-- name: Docker | Install apt dependencies
+- name: Install apt dependencies
   become: yes
   apt:
     name: '{{ docker_apt_dependencies }}'
     update_cache: yes
     state: present
 
-- name: Docker | Add apt-key
+- name: Add apt-key
   become: yes
   apt_key:
     url: '{{ docker_gpgkey_url }}'
     id: '{{ docker_gpgkey_fingerprint }}'
     state: present
 
-- name: Docker | Add repository
+- name: Add repository
   become: yes
   apt_repository:
     repo: '{{ docker_apt_repo }}'
     state: present
     mode: '0644'
 
-- name: Docker | Install
+- name: Install
   become: yes
   apt:
     name: '{{ docker_apt }}'
     state: present
   notify: Restart Docker
 
-- name: Docker | Run at boot
+- name: Run at boot
   become: yes
   service:
     name: docker
     state: started
     enabled: true
 
-- name: Docker | Check if in group
+- name: Check if in group
   shell: |
     set -o pipefail
     id -nG | grep docker
@@ -53,7 +53,7 @@
   register: in_docker_group
   failed_when: in_docker_group.rc > 1
 
-- name: Docker | Add user to Docker group
+- name: Add user to Docker group
   become: yes
   command: 'usermod -aG docker {{ ansible_user }}'
   when: in_docker_group.rc != 0
