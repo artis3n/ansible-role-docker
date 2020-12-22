@@ -24,10 +24,11 @@ distro:
   Ubuntu: ubuntu
   Pop!_OS: ubuntu
   Debian: debian
-  Kali GNU/Linux: debian
+  Kali GNU/Linux: debian  # Legacy Kali ansible_distribution_release (<2020.4)
+  Kali: debian
 
 distro_release_name:
-  kali-rolling: buster
+  kali-rolling: focal
   groovy: focal
 
 distro_release: '{{ distro_release_name[ansible_distribution_release] | default(ansible_distribution_release | lower) }}'
