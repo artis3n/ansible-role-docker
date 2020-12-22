@@ -28,8 +28,7 @@ distro:
   Kali: debian
 
 distro_release_name:
-  kali-rolling: groovy
-  groovy: groovy
+  kali-rolling: buster
 
 distro_release: '{{ distro_release_name[ansible_distribution_release] | default(ansible_distribution_release | lower) }}'
 
