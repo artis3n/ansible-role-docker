@@ -4,18 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pre-commit = "~=2.8.2"
-ansible-lint = "~=4.3.7"
+pre-commit = "*"
+ansible-lint = "*"
 molecule = {extras = ["docker,lint"], version = "*"}
-docker = "~=4.3.1"
-yamllint = "~=1.25.0"
+docker = "*"
+yamllint = "*"
 
 [packages]
-ansible = "~=2.10"
+ansible = "*"
 
 [requires]
 python_version = "3.8"
-
-# Molecule apparently refuses to install at 3.1.5, I _have_ to use the pre-release version
-[pipenv]
-allow_prereleases = true

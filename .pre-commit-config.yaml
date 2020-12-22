@@ -18,4 +18,3 @@ repos:
   hooks:
     - id: ansible-lint
       files: \.(yaml|yml)$
-default_stages: [prepare-commit-msg, commit, push]
