@@ -26,7 +26,7 @@ jobs:
 
       - name: Set Up Python 3
         id: setup-python
-        uses: actions/setup-python@v2.3.2
+        uses: actions/setup-python@v3
         with:
           python-version: '3.10'
           cache: 'pipenv'
