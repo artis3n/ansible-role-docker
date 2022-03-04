@@ -5,9 +5,7 @@ driver:
   name: docker
 lint: |
   set -e
-  echo "PWD: $PWD"
   ansible-lint
-  yamllint .
 platforms:
   - name: instance
     image: ${MOLECULE_DISTRO:-ghcr.io/artis3n/docker-ubuntu2104-ansible:latest}
