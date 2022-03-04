@@ -1,43 +1,44 @@
+---
 - name: Operating System
   debug:
     msg: '{{ ansible_distribution }} {{ ansible_distribution_release }} as: {{ distro[ansible_distribution] }} {{ distro_release }}'
 
 - name: Remove incompatible packages
-  become: yes
+  become: true
   apt:
     name: '{{ docker_incompatibility_packages }}'
     state: absent
 
 - name: Install apt dependencies
-  become: yes
+  become: true
   apt:
     name: '{{ docker_apt_dependencies }}'
-    update_cache: yes
+    update_cache: true
     state: present
 
 - name: Add apt-key
-  become: yes
+  become: true
   apt_key:
     url: '{{ docker_gpgkey_url }}'
     id: '{{ docker_gpgkey_fingerprint }}'
     state: present
 
 - name: Add repository
-  become: yes
+  become: true
   apt_repository:
     repo: '{{ docker_apt_repo }}'
     state: present
     mode: '0644'
 
 - name: Install
-  become: yes
+  become: true
   apt:
     name: '{{ docker_apt }}'
     state: present
   notify: Restart Docker
 
 - name: Run at boot
-  become: yes
+  become: true
   service:
     name: docker
     state: started
@@ -54,7 +55,7 @@
   failed_when: in_docker_group.rc > 1
 
 - name: Add user to Docker group
-  become: yes
+  become: true
   command: 'usermod -aG docker {{ ansible_user }}'
   when: in_docker_group.rc != 0
   notify: Docker user added

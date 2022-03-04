@@ -21,21 +21,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install pipenv
-        run: pipx install pipenv
+      - name: Install package manager
+        run: pipx install poetry
 
       - name: Set Up Python 3
         id: setup-python
         uses: actions/setup-python@v3
         with:
           python-version: '3.10'
-          cache: 'pipenv'
+          # cache: 'poetry'
 
       - name: Install Dependencies
-        run: pipenv install --dev
+        run: poetry install
 
       - name: Test
-        run: pipenv run molecule test
+        run: poetry run molecule test
         env:
           MOLECULE_DISTRO: "${{ matrix.distros }}"
           PY_COLORS: '1'

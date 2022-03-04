@@ -2,18 +2,18 @@
 
 .PHONY: install
 install:
-	pipenv install --dev
+	poetry install
+	poetry run pre-commit install --install-hooks
 
 .PHONY: update
 update:
-	pipenv update --dev
-	pipenv run pre-commit autoupdate
+	poetry update
+	poetry run pre-commit autoupdate
 
 .PHONY: test
 test:
-	pipenv run molecule test
+	poetry run molecule test
 
 .PHONY: lint
 lint:
-	pipenv run yamllint .
-	pipenv run ansible-lint
+	poetry run ansible-lint
