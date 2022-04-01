@@ -1,13 +1,13 @@
 [[package]]
 name = "ansible"
-version = "5.4.0"
+version = "5.5.0"
 description = "Radically simple IT automation"
 category = "main"
 optional = false
 python-versions = ">=3.8"
 
 [package.dependencies]
-ansible-core = ">=2.12.2,<2.13.0"
+ansible-core = ">=2.12.3,<2.13.0"
 
 [[package]]
 name = "ansible-compat"
@@ -763,11 +763,11 @@ test = ["websockets"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "797f8c187cc89d2c900179e344db93a81f751944971d6f594cac9db402ee797b"
+content-hash = "3cd26ca6db25df33acd3dcf7608ee0e3c578cb976ea7ee2fc6b54850100fb5ff"
 
 [metadata.files]
 ansible = [
-    {file = "ansible-5.4.0.tar.gz", hash = "sha256:2f0ecbd8a3232e520bf3e3bc23f40dda60b9ce7924ca194bd35f4de4027100fc"},
+    {file = "ansible-5.5.0.tar.gz", hash = "sha256:b8a76d737889c9bfd0e6b0f2276dcf8d836da667067a355776f3504d7a66d518"},
 ]
 ansible-compat = [
     {file = "ansible-compat-2.0.0.tar.gz", hash = "sha256:4027da4ec2b524c263a801cc2dc6da2b98c2996cec258cef118a30c790467ed2"},
