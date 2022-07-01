@@ -11,7 +11,7 @@ ansible = "^5.7.0"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.18.1"
-ansible-lint = "^5.4.0"
+ansible-lint = "^6.3.0"
 molecule = {extras = ["docker"], version = "^3.6.1"}
 
 [build-system]
