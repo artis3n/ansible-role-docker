@@ -6,11 +6,11 @@
   tasks:
 
   - name: Get executable
-    stat:
+    ansible.builtin.stat:
       path: /usr/bin/docker
     register: docker_exec
 
   - name: Assertions
-    assert:
+    ansible.builtin.assert:
       that:
         - docker_exec.stat.exists

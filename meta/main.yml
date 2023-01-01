@@ -5,7 +5,7 @@ galaxy_info:
   description: Install Docker CE
   license: MIT
 
-  min_ansible_version: 2.9
+  min_ansible_version: "2.11"
 
   platforms:
     - name: Ubuntu
@@ -15,6 +15,7 @@ galaxy_info:
         - xenial
         - focal
         - hirsute
+        - jammy
 
   galaxy_tags:
     - docker

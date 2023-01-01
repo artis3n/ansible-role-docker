@@ -1,51 +1,51 @@
 ---
 - name: Operating System
-  debug:
+  ansible.builtin.debug:
     msg: '{{ ansible_distribution }} {{ ansible_distribution_release }} as: {{ distro[ansible_distribution] }} {{ distro_release }}'
 
 - name: Remove incompatible packages
   become: true
-  apt:
+  ansible.builtin.apt:
     name: '{{ docker_incompatibility_packages }}'
     state: absent
 
 - name: Install apt dependencies
   become: true
-  apt:
+  ansible.builtin.apt:
     name: '{{ docker_apt_dependencies }}'
     update_cache: true
     state: present
 
 - name: Add apt-key
   become: true
-  apt_key:
+  ansible.builtin.apt_key:
     url: '{{ docker_gpgkey_url }}'
     id: '{{ docker_gpgkey_fingerprint }}'
     state: present
 
 - name: Add repository
   become: true
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: '{{ docker_apt_repo }}'
     state: present
     mode: '0644'
 
 - name: Install
   become: true
-  apt:
+  ansible.builtin.apt:
     name: '{{ docker_apt }}'
     state: present
   notify: Restart Docker
 
 - name: Run at boot
   become: true
-  service:
+  ansible.builtin.service:
     name: docker
     state: started
     enabled: true
 
 - name: Check if in group
-  shell: |
+  ansible.builtin.shell: |
     set -o pipefail
     id -nG | grep docker
   args:
@@ -56,6 +56,6 @@
 
 - name: Add user to Docker group
   become: true
-  command: 'usermod -aG docker {{ ansible_user }}'
+  ansible.builtin.command: 'usermod -aG docker {{ ansible_user }}'
   when: in_docker_group.rc != 0
   notify: Docker user added
