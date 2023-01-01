@@ -21,8 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install package manager
-        run: pipx install poetry
+      # - name: Install package manager
+      #   run: pipx install poetry
 
       - name: Set Up Python 3
         id: setup-python
@@ -31,8 +31,11 @@ jobs:
           python-version: '3.10'
           # cache: 'poetry'
 
+      - name: Install dependency manager
+        run: pip install poetry
+
       - name: Install Dependencies
-        run: poetry install
+        run: poetry install --no-interaction
 
       - name: Test
         run: poetry run molecule test
